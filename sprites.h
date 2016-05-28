@@ -1,0 +1,158 @@
+PROGMEM const unsigned char main_ship1[] = {
+  0b00010000,
+  0b01001010,
+  0b01011010,
+  0b01100110,
+  0b11111111,
+  0b10111101,
+  0b10011001,
+  0b00000000
+};
+
+PROGMEM const unsigned char main_ship2[] = {
+  0b00001000,
+  0b01010010,
+  0b01011010,
+  0b01100110,
+  0b11111111,
+  0b10111101,
+  0b10011001,
+  0b00000000
+};
+
+PROGMEM const unsigned char easy_enemy1[] = {
+  0b00000000,
+  0b00011000,
+  0b00100100,
+  0b01111110,
+  0b01111110,
+  0b01011010,
+  0b00000000,
+  0b00000000
+};
+
+PROGMEM const unsigned char easy_enemy2[] = {
+  0b00000000,
+  0b00100100,
+  0b00111100,
+  0b01111110,
+  0b01111110,
+  0b01011010,
+  0b01100110,
+  0b00000000
+};
+
+PROGMEM const unsigned char easy_enemy3[] = {
+  0b00000000,
+  0b00011000,
+  0b00111100,
+  0b01111110,
+  0b01011010,
+  0b01011010,
+  0b01000010,
+  0b00000000
+};
+
+PROGMEM const unsigned char medium_enemy1[] = {
+  0b01011010,
+  0b01011010,
+  0b11111111,
+  0b11111111,
+  0b11100111,
+  0b11111111,
+  0b11100111,
+  0b01000010
+};
+
+PROGMEM const unsigned char explosion1[] = {
+  0b00000000,
+  0b00000000,
+  0b00010000,
+  0b01011000,
+  0b01010100,
+  0b00010000,
+  0b00000000,
+  0b00000000
+};
+
+PROGMEM const unsigned char explosion2[] = {
+  0b00000000,
+  0b00000000,
+  0b00110100,
+  0b01010010,
+  0b01000100,
+  0b00101000,
+  0b00000000,
+  0b00000000
+};
+
+PROGMEM const unsigned char explosion3[] = {
+  0b00000000,
+  0b01001000,
+  0b01101000,
+  0b01000100,
+  0b00101000,
+  0b00100100,
+  0b00000000,
+  0b00000000
+};
+
+PROGMEM const unsigned char explosion4[] = {
+  0b01000000,
+  0b10010000,
+  0b01001000,
+  0b01010100,
+  0b00001000,
+  0b00110010,
+  0b10000100,
+  0b01010000
+};
+
+PROGMEM const unsigned char explosion5[] = {
+  0b01011000,
+  0b10010100,
+  0b01001010,
+  0b11010101,
+  0b10001001,
+  0b00110010,
+  0b10000101,
+  0b01010010
+};
+
+PROGMEM const unsigned char explosion6[] =
+{0x22, 0x00, 0xAD, 0x80, 0x11, 0x00, 0xDC, 0xC0, 
+0x29, 0x00, 0x17, 0x00, 0x5A, 0xC0, 0xB4, 0x80, 
+0x4A, 0x80, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+PROGMEM const unsigned char explosion7[] =
+{0x0F, 0x00, 0x56, 0x40, 0x77, 0x20, 0x08, 0x90, 
+0xEE, 0x50, 0x54, 0xA0, 0x8E, 0x90, 0xEB, 0x60, 
+0x92, 0xD0, 0xA5, 0x60, 0x59, 0x20, 0x29, 0x40, 
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+
+PROGMEM const unsigned char mainpart1[] =
+{ 0x03, 0x30, 0x1F, 0x3E, 0x3F, 0xFE, 0x3F, 0x3E,
+  0x27, 0xF8, 0x6F, 0xFD, 0x4F, 0xFA, 0xFF, 0x8D,
+  0xFF, 0x8A, 0x4F, 0xFD, 0x6F, 0xFA, 0x27, 0xF8,
+  0x3F, 0x3E, 0x3F, 0xFE, 0x1F, 0x3E, 0x03, 0x30
+};
+
+PROGMEM const unsigned char mainpart2[] =
+{ 0x03, 0x30, 0x1F, 0x3E, 0x3F, 0xFE, 0x3F, 0x3E,
+  0x27, 0xF8, 0x6F, 0xFA, 0x4F, 0xFD, 0xFF, 0x8A,
+  0xFF, 0x8D, 0x4F, 0xFA, 0x6F, 0xFD, 0x27, 0xF8,
+  0x3F, 0x3E, 0x3F, 0xFE, 0x1F, 0x3E, 0x03, 0x30
+};
+
+PROGMEM const unsigned char bottomaheadpart[] =
+{0x03, 0x1F, 0x4F, 0xFF, 0xFF, 0x4F, 0x1F, 0x00};
+
+PROGMEM const unsigned char upperaheadpart[] =
+{0x00, 0x1F, 0x4F, 0xFF, 0xFF, 0x4F, 0x1F, 0x03};
+
+PROGMEM const unsigned char upperretropart[] =
+{0xFF, 0x81, 0x81, 0x81, 0x81, 0x81, 0xFF, 0x30};
+
+PROGMEM const unsigned char bottomretropart[] =
+{0x30, 0xFF, 0x81, 0x81, 0x81, 0x81, 0x81, 0xFF};
