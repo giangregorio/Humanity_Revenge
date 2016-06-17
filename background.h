@@ -2,10 +2,17 @@
 
 struct Star
 {
-  byte x;
-  byte y;
+  byte x = 0;
+  byte y = 0;
   // 1 visible, 2speed
   byte starstatus = 0b00000000;
+
+  void reset()    
+  {
+    x = 0;
+    y = 0;
+    starstatus = 0b00000000;
+  }
 };
 
 class Background
@@ -29,11 +36,9 @@ class Background
         for (int i = 0; i < BACKGROUND_STAR_NUM; i++)
           if (!((stars[i].starstatus & 0b10000000) == 0b10000000))
           {
-            Star star;
-            star.x = 128;
-            star.y = random(MIN_Y + 2, MAX_Y - 1);
-            star.starstatus = 0b10000000 | (byte)((random(1, 3) << 5));
-            stars[i] = star;
+            stars[i].x = 128;
+            stars[i].y = random(MIN_Y + 2, MAX_Y - 1);
+            stars[i].starstatus = 0b10000000 | (byte)((random(1, 3) << 5));
             break;
           }
       }
@@ -49,10 +54,7 @@ class Background
     void clr()
     {
       for (int i = 0; i < BACKGROUND_STAR_NUM; i++)
-      {
-        Star star;
-        stars[i] = star;
-      }
+        stars[i].reset();
     }
 };
 

@@ -3,10 +3,17 @@
 #define MAX_ENEMY_ON_STAGE         MAX_EASY_ENEMY_ON_STAGE + MAX_MEDIUM_ENEMY_ON_STAGE
 
 struct Explosion {
-  byte x;
-  byte y;
+  byte x = 0;
+  byte y = 0;
   // 3maxstep, 1 visible, 4currentstep
   byte explosionstatus = 0;
+
+  void reset()
+  {
+    x = 0;
+    y = 0;
+    explosionstatus = 0;
+  }
 };
 
 class ExplosionManager
@@ -19,12 +26,9 @@ class ExplosionManager
       for (int i = 0; i < MAX_ENEMY_ON_STAGE; i++)
         if (!((explosions[i].explosionstatus & 0b00010000) == 0b00010000))
         {
-          Explosion explosion;
-          explosion.x = x;
-          explosion.y = y;
-          explosion.explosionstatus = (byte)(maxstep << 5) | 0b00010001;
-
-          explosions[i] = explosion;
+          explosions[i].x = x;
+          explosions[i].y = y;
+          explosions[i].explosionstatus = (byte)(maxstep << 5) | 0b00010001;
           break;
         }
     }
@@ -32,10 +36,7 @@ class ExplosionManager
     void clr()
     {
       for (int i = 0; i < MAX_ENEMY_ON_STAGE; i++)
-      {
-        Explosion explosion;
-        explosions[i] = explosion;
-      }
+        explosions[i].reset();
     }
 
     void draw()

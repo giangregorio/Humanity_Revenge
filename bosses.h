@@ -5,10 +5,10 @@
 class Boss
 {
   private:
-    byte x;
-    byte y;
+    byte x = 0;
+    byte y = 0;
 
-    unsigned long attackchange;
+    unsigned long attackchange = 0;
     unsigned long dead = 0;
   public:
     // 2 attacktype, 1 goingup, 1alternate engine, 1 visible
@@ -21,60 +21,50 @@ class Boss
       bossstatus = 0b01111000;
       attackchange = millis();
 
-      Enemy mainpart;
-      mainpart.enemystatus = (byte)(BOSS_PART << 6) | 0b00001000;
-      mainpart.x = x;
-      mainpart.y = y;
-      mainpart.hitboxXPadding = 0;
-      mainpart.hitboxYPadding = 0;
-      mainpart.hitboxWidth = 16;
-      mainpart.hitboxHeight = 16;
-      mainpart.enemylife = 60;
-      enemies[0] = mainpart;
+      enemies[0].enemystatus = (byte)(BOSS_PART << 6) | 0b00001000;
+      enemies[0].x = x;
+      enemies[0].y = y;
+      enemies[0].hitboxXPadding = 0;
+      enemies[0].hitboxYPadding = 0;
+      enemies[0].hitboxWidth = 16;
+      enemies[0].hitboxHeight = 16;
+      enemies[0].enemylife = 60;
+      
+      enemies[1].x = x;
+      enemies[1].y = y + 16;
+      enemies[1].enemystatus = (byte)(BOSS_PART << 6) | 0b00001000;
+      enemies[1].hitboxXPadding = 0;
+      enemies[1].hitboxYPadding = 0;
+      enemies[1].hitboxWidth = 8;
+      enemies[1].hitboxHeight = 8;
+      enemies[1].enemylife = 25;
 
-      Enemy bottomaheadpart;
-      bottomaheadpart.x = x;
-      bottomaheadpart.y = y + 16;
-      bottomaheadpart.enemystatus = (byte)(BOSS_PART << 6) | 0b00001000;
-      bottomaheadpart.hitboxXPadding = 0;
-      bottomaheadpart.hitboxYPadding = 0;
-      bottomaheadpart.hitboxWidth = 8;
-      bottomaheadpart.hitboxHeight = 8;
-      bottomaheadpart.enemylife = 25;
-      enemies[1] = bottomaheadpart;
+      enemies[2].x = x;
+      enemies[2].y = y - 8;
+      enemies[2].enemystatus = (byte)(BOSS_PART << 6) | 0b00001000;
+      enemies[2].hitboxXPadding = 0;
+      enemies[2].hitboxYPadding = 0;
+      enemies[2].hitboxWidth = 8;
+      enemies[2].hitboxHeight = 8;
+      enemies[2].enemylife = 25;
 
-      Enemy upperaheadpart;
-      upperaheadpart.x = x;
-      upperaheadpart.y = y - 8;
-      upperaheadpart.enemystatus = (byte)(BOSS_PART << 6) | 0b00001000;
-      upperaheadpart.hitboxXPadding = 0;
-      upperaheadpart.hitboxYPadding = 0;
-      upperaheadpart.hitboxWidth = 8;
-      upperaheadpart.hitboxHeight = 8;
-      upperaheadpart.enemylife = 25;
-      enemies[2] = upperaheadpart;
-
-      Enemy bottomretropart;
-      bottomretropart.x = x + 8;
-      bottomretropart.y = y + 16;
-      bottomretropart.enemystatus = (byte)(BOSS_PART << 6) | 0b00001000;
-      bottomretropart.hitboxXPadding = 0;
-      bottomretropart.hitboxYPadding = 0;
-      bottomretropart.hitboxWidth = 8;
-      bottomretropart.hitboxHeight = 8;
-      bottomretropart.enemylife = 10;
-      enemies[3] = bottomretropart;
-
-      Enemy upperretropart;
-      upperretropart.x = x + 8;
-      upperretropart.y = y - 8;
-      upperretropart.enemystatus = (byte)(BOSS_PART << 6) | 0b00001000;
-      upperretropart.hitboxXPadding = 0;
-      upperretropart.hitboxYPadding = 0;
-      upperretropart.hitboxWidth = 8;
-      upperretropart.hitboxHeight = 8;
-      upperretropart.enemylife = 10;
-      enemies[4] = upperretropart;
+      enemies[3].x = x + 8;
+      enemies[3].y = y + 16;
+      enemies[3].enemystatus = (byte)(BOSS_PART << 6) | 0b00001000;
+      enemies[3].hitboxXPadding = 0;
+      enemies[3].hitboxYPadding = 0;
+      enemies[3].hitboxWidth = 8;
+      enemies[3].hitboxHeight = 8;
+      enemies[3].enemylife = 10;
+    
+      enemies[4].x = x + 8;
+      enemies[4].y = y - 8;
+      enemies[4].enemystatus = (byte)(BOSS_PART << 6) | 0b00001000;
+      enemies[4].hitboxXPadding = 0;
+      enemies[4].hitboxYPadding = 0;
+      enemies[4].hitboxWidth = 8;
+      enemies[4].hitboxHeight = 8;
+      enemies[4].enemylife = 10;
     }
 
     bool isdead(Enemy enemies[])

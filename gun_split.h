@@ -4,6 +4,13 @@ struct GunSplitShootItem
     GunShoot gunshoottop;
     GunShoot gunshootmiddle;
     GunShoot gunshootbottom;
+
+    void reset()
+    {
+      gunshoottop.reset();
+      gunshootmiddle.reset();
+      gunshootbottom.reset();
+    }
 };
 
 class GunSplit
@@ -99,10 +106,7 @@ class GunSplit
     void clr()
     {
       for (int i = 0; i < GUN_MAXIMUM_PROJECTILES; i++)
-      {
-        GunSplitShootItem gunshootitem;
-        gun_shoots[i] = gunshootitem;
-      }
+        gun_shoots[i].reset();
     }
 
     void checkcollisions(EnemyManager &enemym, ExplosionManager &explosionm)

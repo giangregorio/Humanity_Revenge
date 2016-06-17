@@ -3,9 +3,9 @@ class Bomb
   private:
   public:
     bool visible = false;
-    byte x;
-    byte y;
-    byte radius;
+    byte x = 0;
+    byte y = 0;
+    byte radius = 0;
 
     void update(EnemyManager &enemym)
     {

@@ -11,6 +11,15 @@ struct LaserShoot
     bool visible = false;
     byte damage = LASER_DAMAGE;
     byte width = 0;
+
+    void reset()
+    {
+      x = 0;
+      y = 0;
+      visible = false;
+      damage = LASER_DAMAGE;
+      width = 0;
+    }
 };
 
 class Laser
@@ -73,10 +82,7 @@ class Laser
     void clr()
     {
       for (int i = 0; i < LASER_MAXIMUM_PROJECTILES; i++)
-      {
-        LaserShoot lasershoot;
-        laser_shoots[i] = lasershoot;
-      }
+        laser_shoots[i].reset();
     }
 
     void checkcollisions(EnemyManager &enemym, ExplosionManager &explosionm)

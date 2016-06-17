@@ -9,6 +9,13 @@ struct GunShoot
     byte x = 0;
     byte y = 0;
     bool visible = false;
+
+    void reset()
+    {
+      x = 0;
+      y = 0;
+      visible = false;
+    }
 };
 
 struct GunShootItem
@@ -16,6 +23,12 @@ struct GunShootItem
   public:
     GunShoot gunshoottop;
     GunShoot gunshootbottom;
+
+    void reset()
+    {
+      gunshoottop.reset();
+      gunshootbottom.reset();
+    }
 };
 
 class Gun
@@ -86,10 +99,7 @@ class Gun
     void clr()
     {
       for (int i = 0; i < GUN_MAXIMUM_PROJECTILES; i++)
-      {
-        GunShootItem gunshootitem;
-        gun_shoots[i] = gunshootitem;
-      }
+        gun_shoots[i].reset();
     }
 
     void checkcollisions(EnemyManager &enemym, ExplosionManager &explosionm)

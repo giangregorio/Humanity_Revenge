@@ -16,22 +16,44 @@ const float pi = 3.141593;
 
 struct EnemyShoot
 {
-  int x, y;
+  int x = 0, y = 0;
   bool visible = false;
   // 1 positive, 7 angle
   byte shootstatus = 0;
+
+  void reset()
+  {
+    x = 0;
+    y = 0;
+    visible = false;
+    shootstatus = 0;
+  }
 };
 
 struct Enemy
 {
   // 2 type, 2movtype, 1visible, 2enemyskin, 1bombed
   byte enemystatus = 0;
-  byte x, y;
-  byte hitboxWidth, hitboxHeight, hitboxXPadding, hitboxYPadding;
+  byte x = 0, y = 0;
+  byte hitboxWidth = 0, hitboxHeight = 0, hitboxXPadding = 0, hitboxYPadding = 0;
 
-  byte enemylife;
+  byte enemylife = 0;
   byte firstY = 0;
-  byte randomseed;
+  byte randomseed = 0;
+
+  void reset()
+  {
+    enemystatus = 0;
+    x = 0;
+    y = 0;
+    hitboxWidth = 0;
+    hitboxHeight = 0;
+    hitboxXPadding = 0;
+    hitboxYPadding = 0;
+    enemylife = 0;
+    firstY = 0;
+    randomseed = 0;
+  }
 };
 
 #include "bosses.h"
@@ -371,10 +393,7 @@ class EnemyManager
     {
       if (shootsonstage > 0 || force)
         for (int i = 0; i < MAX_ENEMY_SHOOTS; i++)
-        {
-          EnemyShoot enemyshoot;
-          shoots[i] = enemyshoot;
-        }
+          shoots[i].reset();
       shootsonstage = 0;
     }
 
@@ -384,10 +403,7 @@ class EnemyManager
       mediumenemyonstage = 0;
 
       for (int i = 0; i < MAX_ENEMY_ON_STAGE; i++)
-      {
-        Enemy enemy;
-        enemies[i] = enemy;
-      }
+        enemies[i].reset();
 
       clrshoot(force);
 

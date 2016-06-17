@@ -103,22 +103,22 @@ void loop() {
           switch (currentlevel)
           {
             case 1:
-              arduboy.println("1 - Counterattack");
+              arduboy.println(F("1 - Counterattack"));
               break;
             case 2:
-              arduboy.println("2 - Reinforce");
+              arduboy.println(F("2 - Reinforce"));
               break;
             case 3:
-              arduboy.println("3 - The Kamikaze");
+              arduboy.println(F("3 - The Kamikaze"));
               break;
             case 4:
-              arduboy.println("4 - Getting Bigger");
+              arduboy.println(F("4 - Getting Bigger"));
               break;
             case 5:
-              arduboy.println("5 - Keep shooting");
+              arduboy.println(F("5 - Keep shooting"));
               break;
             case 6:
-              arduboy.println("6 - Oh Oh");
+              arduboy.println(F("6 - Oh Oh"));
               break;
           }
 
@@ -211,9 +211,9 @@ void DrawGameOver()
 {
   arduboy.setCursor(8, 22);
   arduboy.setTextSize(2);
-  arduboy.println("game over!");
+  arduboy.println(F("game over!"));
   arduboy.setTextSize(1);
-  arduboy.print("   score: ");
+  arduboy.print(F("   score: "));
   arduboy.print(global_score);
 }
 
@@ -221,9 +221,9 @@ void DrawVictory()
 {
   arduboy.setCursor(8, 22);
   arduboy.setTextSize(2);
-  arduboy.println("YOU WIN!");
+  arduboy.println(F("YOU WIN!"));
   arduboy.setTextSize(1);
-  arduboy.print("   score: ");
+  arduboy.print(F("   score: "));
   arduboy.print(global_score);
 }
 
@@ -277,7 +277,7 @@ void DrawStatusBar()
 
   arduboy.setCursor(50, -1);
   arduboy.setTextSize(1);
-  arduboy.print("stage:");
+  arduboy.print(F("stage:"));
   arduboy.setCursor(86, 0);
   arduboy.print(currentlevel);
 
